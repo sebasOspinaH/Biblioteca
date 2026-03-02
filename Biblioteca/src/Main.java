@@ -13,9 +13,6 @@ public class Main {
 //            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
 //            System.out.println("i = " + i);
 // }
-        Scanner sc = new Scanner("Ingrese la cantidad de libros a guardar: ");
-        int n = sc.nextInt();
-        sc.nextLine();
         int opcion;
         do{
             System.out.println("\n----- MENU -----");
@@ -23,13 +20,24 @@ public class Main {
             System.out.println("2. Mostrar ");
             System.out.println("3. Consultar maquinas");
             System.out.println("4. Modificar nombre, estado, tipo");
-            opcion = sc.nextInt();
-            sc.nextLine();
+            Scanner op = new Scanner("Ingrese la opcion: ");
+            opcion = op.nextInt();
+            op.nextLine();
             switch(opcion){
                 case 1:
+                    Scanner sc = new Scanner("Ingrese la cantidad de libros a guardar: ");
+                    int n = sc.nextInt();
                     for(int i = 0; i < n; i++){
                         System.out.println("Ingrese el indicador del libro: ");
-                        int indicador = Integer.parseInt(sc.nextLine());
+                        int indicador = sc.nextInt();
+                        System.out.println("Ingrese el nombre del libro: ");
+                        String nombre = sc.nextLine();
+                        System.out.println("Ingrese el nombre del libro: ");
+                        String autor = sc.nextLine();
+                        System.out.println("Ingrese el nombre del libro: ");
+                        String editorial = sc.nextLine();
+                        System.out.println("Ingrese el nombre del libro: ");
+                        String anhoP = sc.nextLine();
                     }
             }
         }while(opcion != 100);

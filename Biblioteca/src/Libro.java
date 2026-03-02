@@ -2,7 +2,7 @@ public class Libro {
     private String nombre;
     private String autor;
     private String editorial;
-    private String añoP;
+    private String anhoP;
     private String estado;
     private String identificador;
 
@@ -10,7 +10,7 @@ public class Libro {
         this.autor = autor;
         this.nombre = nombre;
         this.editorial = editorial;
-        this.añoP = añoP;
+        this.anhoP = anhoP;
         this.estado = estado;
         this.identificador = identificador;
     }
@@ -39,12 +39,12 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public String getAñoP() {
-        return añoP;
+    public String getAnhoP() {
+        return anhoP;
     }
 
-    public void setAñoP(String añoP) {
-        this.añoP = añoP;
+    public void setAnhoP(String anhoP) {
+        this.anhoP = anhoP;
     }
 
     public String getEstado() {
