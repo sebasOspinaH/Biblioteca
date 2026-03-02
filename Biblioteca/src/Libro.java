@@ -54,4 +54,8 @@ public class Libro {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public String getIdentificador() {
+        return identificador;
+    }
 }
