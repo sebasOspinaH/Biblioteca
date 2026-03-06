@@ -41,13 +41,10 @@ public class Main {
                         System.out.print("telefono: ");
                         int telefono = sc.nextInt();
 
-                        System.out.print("direccion: ");
-                        String direccion = sc.nextLine();
-
                         System.out.print("presenta libro: ");
                         String pLibro = sc.nextLine();
 
-                        Cliente c = new Cliente(id, telefono, pLibro, nombre, direccion);
+                        Cliente c = new Cliente(id, telefono, pLibro, nombre);
                         boolean r = con.guardarcliente(c);
                         if (r) {
                             System.out.println("Cliente exitosamente guardado");
@@ -141,6 +138,10 @@ public class Main {
                     }else{
                         System.out.println("Libro o cliente no encontrado");
                     }
+                    sc.nextLine();
+                    break;
+                case 8:
+                    System.out.println("Saliendo del sistema");
                     sc.nextLine();
                     break;
                 default:

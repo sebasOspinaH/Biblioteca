@@ -1,14 +1,12 @@
 public class Cliente {
     private int id;
     private int  telefono;
-    private String direccion;
     private String nombre;
     private String presentalibro;
 
-    public Cliente(int id, int telefono, String presentalibro, String nombre, String direccion ) {
+    public Cliente(int id, int telefono, String presentalibro, String nombre) {
         this.id = id;
         this.telefono = telefono;
-        this.direccion = direccion;
         this.nombre = nombre;
         this.presentalibro = presentalibro;
     }
@@ -19,10 +17,6 @@ public class Cliente {
 
     public int getTelefono() {
         return telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
     }
 
     public String getNombre() {
@@ -41,9 +35,6 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
