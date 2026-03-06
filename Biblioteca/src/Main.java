@@ -15,10 +15,6 @@ public class Main {
 // }
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Ingrese cantidad de maquinas registrar: ");
-        int n = sc.nextInt();
-        sc.nextLine();
-
         Controlador_cliente con = new Controlador_cliente();
         int opcion;
         do {
@@ -36,6 +32,9 @@ public class Main {
 
             switch (opcion) {
                 case 1:
+                    System.out.print("Ingrese cantidad de clientes a registrar: ");
+                    int n = sc.nextInt();
+                    sc.nextLine();
                     for (int i = 0; i < n; i++) {
                         System.out.println("\nCliente #" + i);
 
@@ -46,7 +45,7 @@ public class Main {
                         String id = sc.nextLine();
 
                         System.out.print("telefono: ");
-                        String telefono = sc.nextLine();
+                        int telefono = sc.nextInt();
 
                         System.out.print("direccion: ");
                         String direccion = sc.nextLine();
