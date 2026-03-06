@@ -1,11 +1,11 @@
-public class cliente {
-    private int id;
-    private int  telefono;
+public class Cliente {
+    private String id;
+    private String  telefono;
     private String direccion;
     private String nombre;
-    private boolean presentalibro;
+    private String presentalibro;
 
-    public cliente(int id, int telefono, boolean presentalibro, String nombre,String direccion ) {
+    public Cliente(String id, String telefono, String presentalibro, String nombre, String direccion ) {
         this.id = id;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -13,11 +13,11 @@ public class cliente {
         this.presentalibro = presentalibro;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -29,15 +29,15 @@ public class cliente {
         return nombre;
     }
 
-    public boolean isPresentalibro() {
+    public String getPresentalibro() {
         return presentalibro;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -49,7 +49,7 @@ public class cliente {
         this.nombre = nombre;
     }
 
-    public void setPresentalibro(boolean presentalibro) {
+    public void setPresentalibro(String presentalibro) {
         this.presentalibro = presentalibro;
     }
 

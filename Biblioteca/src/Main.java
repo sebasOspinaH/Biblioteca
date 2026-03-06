@@ -13,33 +13,59 @@ public class Main {
 //            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
 //            System.out.println("i = " + i);
 // }
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingrese cantidad de maquinas registrar: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        Controlador_cliente con = new Controlador_cliente();
         int opcion;
-        do{
+        do {
             System.out.println("\n----- MENU -----");
-            System.out.println("1. Registrar libro");
-            System.out.println("2. Mostrar ");
+            System.out.println("1. Registrar cliente");
+            System.out.println("2. Mostrar maquinas");
             System.out.println("3. Consultar maquinas");
             System.out.println("4. Modificar nombre, estado, tipo");
-            Scanner op = new Scanner("Ingrese la opcion: ");
-            opcion = op.nextInt();
-            op.nextLine();
-            switch(opcion){
+            System.out.println("5. Calcular total actividad maquina");
+            System.out.println("6. Mostrar Mejor maquina");
+            System.out.println("7. Salir");
+            System.out.print("Opcion: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
                 case 1:
-                    Scanner sc = new Scanner("Ingrese la cantidad de libros a guardar: ");
-                    int n = sc.nextInt();
-                    for(int i = 0; i < n; i++){
-                        System.out.println("Ingrese el indicador del libro: ");
-                        int indicador = sc.nextInt();
-                        System.out.println("Ingrese el nombre del libro: ");
+                    for (int i = 0; i < n; i++) {
+                        System.out.println("\nCliente #" + i);
+
+                        System.out.print("Nombre: ");
                         String nombre = sc.nextLine();
-                        System.out.println("Ingrese el nombre del libro: ");
-                        String autor = sc.nextLine();
-                        System.out.println("Ingrese el nombre del libro: ");
-                        String editorial = sc.nextLine();
-                        System.out.println("Ingrese el nombre del libro: ");
-                        String anhoP = sc.nextLine();
+
+                        System.out.print("identificacion: ");
+                        String id = sc.nextLine();
+
+                        System.out.print("telefono: ");
+                        String telefono = sc.nextLine();
+
+                        System.out.print("direccion: ");
+                        String direccion = sc.nextLine();
+
+                        System.out.print("presenta libro: ");
+                        String pLibro = sc.nextLine();
+
+                        Cliente c = new Cliente(id,telefono,pLibro,nombre,direccion);
+                        boolean r = con.guardarcliente(c);
+                        if(r){
+                            System.out.println("Cliente exitosamente guardado");
+                        }else{
+                            System.out.println("Cliente ya existente");
+                        }
                     }
-            }
-        }while(opcion != 100);
-   }
-}
+                        sc.nextLine();
+                    }
+                    break;
+
+            }while (opcion != 7);
+        }
+    }

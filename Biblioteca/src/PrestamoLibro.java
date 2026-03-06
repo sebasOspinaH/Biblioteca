@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class prestamolibro {
-    ArrayList<cliente> clientes;
+public class PrestamoLibro {
+    ArrayList<Cliente> clientes;
     ArrayList<Libro> libros;
 
-    public prestamolibro(ArrayList<cliente> clientes,ArrayList <Libro> libros) {
+    public PrestamoLibro(ArrayList<Cliente> clientes, ArrayList <Libro> libros) {
         this.clientes = clientes;
         this.libros = libros;
     }
-    public void generarprestamo(int idcl , String idli){
+    public void generarprestamo(String idcl , String idli){
         for (int i = 0; i< clientes.size(); i++){
-            if(clientes.get(i).getId() == idcl){
-                clientes.get(i).setPresentalibro(true);
+            if(clientes.get(i).getId().equalsIgnoreCase(idcl)){
+                clientes.get(i).setPresentalibro("Si");
             }
         }
         for(int l = 0; l<libros.size(); l++){
@@ -20,10 +20,10 @@ public class prestamolibro {
             }
         }
     }
-    public void registrardevoluciones(int idclm, String idliq){
+    public void registrardevoluciones(String idclm, String idliq){
         for (int i = 0; i< clientes.size(); i++){
-            if (clientes.get(i).getId() == idclm){
-                clientes.get(i).setPresentalibro(false);
+            if (clientes.get(i).getId().equalsIgnoreCase(idclm)){
+                clientes.get(i).setPresentalibro("No");
             }
         }
         for (int k = 0 ; k< libros.size(); k++){
