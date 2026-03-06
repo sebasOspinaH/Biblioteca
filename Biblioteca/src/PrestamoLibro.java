@@ -8,9 +8,9 @@ public class PrestamoLibro {
         this.clientes = clientes;
         this.libros = libros;
     }
-    public void generarprestamo(String idcl , String idli){
+    public void generarprestamo(int idcl , String idli){
         for (int i = 0; i< clientes.size(); i++){
-            if(clientes.get(i).getId().equalsIgnoreCase(idcl)){
+            if(clientes.get(i).getId()==idcl){
                 clientes.get(i).setPresentalibro("Si");
             }
         }
@@ -20,9 +20,9 @@ public class PrestamoLibro {
             }
         }
     }
-    public void registrardevoluciones(String idclm, String idliq){
+    public void registrardevoluciones(int idclm, String idliq){
         for (int i = 0; i< clientes.size(); i++){
-            if (clientes.get(i).getId().equalsIgnoreCase(idclm)){
+            if (clientes.get(i).getId()==idclm){
                 clientes.get(i).setPresentalibro("No");
             }
         }

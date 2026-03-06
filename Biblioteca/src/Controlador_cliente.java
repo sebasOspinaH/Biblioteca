@@ -16,9 +16,9 @@ public class Controlador_cliente {
             return false;
         }
     }
-    public boolean eliminarcliente(String  id){
+    public boolean eliminarcliente(int id){
         for (int i =0; i<clientes.size();i++){
-            if (clientes.get(i).getId().equalsIgnoreCase(id)){
+            if (clientes.get(i).getId()==id){
             clientes.remove(i);
             return true;
             }
@@ -26,9 +26,9 @@ public class Controlador_cliente {
         return false;
     }
 
-    public Cliente buscarCliente(String id){
+    public Cliente buscarCliente(int id){
         for(int i = 0; i < clientes.size(); i++){
-            if(clientes.get(i).getId().equalsIgnoreCase(id)){
+            if(clientes.get(i).getId()==id){
                 return clientes.get(i);
             }
         }

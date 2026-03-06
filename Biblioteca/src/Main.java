@@ -42,7 +42,7 @@ public class Main {
                         String nombre = sc.nextLine();
 
                         System.out.print("identificacion: ");
-                        String id = sc.nextLine();
+                        int id = sc.nextInt();
 
                         System.out.print("telefono: ");
                         int telefono = sc.nextInt();
