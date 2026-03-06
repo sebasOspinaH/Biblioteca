@@ -1,35 +1,33 @@
 import java.util.ArrayList;
 
 public class PrestamoLibro {
-    ArrayList<Cliente> clientes;
+    GestionLibros l = new GestionLibros();
+    Controlador_cliente c = new Controlador_cliente();
     ArrayList<Libro> libros;
+    ArrayList<Cliente> clientes;
 
-    public PrestamoLibro(ArrayList<Cliente> clientes, ArrayList <Libro> libros) {
-        this.clientes = clientes;
-        this.libros = libros;
+    public PrestamoLibro() {
+        this.clientes = c.getClientes();
+        this.libros = l.getLibros();
     }
-    public void generarprestamo(int idcl , String idli){
-        for (int i = 0; i< clientes.size(); i++){
-            if(clientes.get(i).getId()==idcl){
-                clientes.get(i).setPresentalibro("Si");
-            }
+    public boolean generarprestamo(int idcl , String idli){
+        Cliente cli = c.buscarCliente(idcl);
+        Libro li = l.buscarLibro(idli);
+        if(cli!=null && li!=null){
+            cli.setPresentalibro("si");
+            li.setEstado("prestado");
+            return true;
         }
-        for(int l = 0; l<libros.size(); l++){
-            if(libros.get(l).getIdentificador().equals(idli)){
-                libros.get(l).setEstado("prestado a un cliente");
-            }
-        }
+        return false;
     }
-    public void registrardevoluciones(int idclm, String idliq){
-        for (int i = 0; i< clientes.size(); i++){
-            if (clientes.get(i).getId()==idclm){
-                clientes.get(i).setPresentalibro("No");
-            }
+    public boolean registrardevoluciones(int idcl, String idli){
+        Cliente cli = c.buscarCliente(idcl);
+        Libro li = l.buscarLibro(idli);
+        if(cli!=null && li!=null){
+            cli.setPresentalibro("no");
+            li.setEstado("disponible");
+            return true;
         }
-        for (int k = 0 ; k< libros.size(); k++){
-            if(libros.get(k).getIdentificador().equals(idliq)){
-                libros.get(k).setEstado("disponible");
-            }
-        }
+        return false;
     }
 }

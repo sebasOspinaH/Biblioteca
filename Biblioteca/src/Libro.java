@@ -58,4 +58,13 @@ public class Libro {
     public String getIdentificador() {
         return identificador;
     }
+
+    public void mostrarInfo(){
+        System.out.println(identificador);
+        System.out.println(nombre);
+        System.out.println(autor);
+        System.out.println(editorial);
+        System.out.println(anhoP);
+        System.out.println(estado);
+    }
 }

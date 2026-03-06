@@ -7,6 +7,10 @@ public class Controlador_cliente {
         this.clientes = new ArrayList<>();
     }
 
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
     public boolean guardarcliente(Cliente cliente){
         Cliente c = buscarCliente(cliente.getId());
         if(c == null){
