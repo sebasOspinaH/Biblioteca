@@ -3,12 +3,14 @@ public class Cliente {
     private int  telefono;
     private String nombre;
     private String presentalibro;
+    private String direccion;
 
-    public Cliente(int id, int telefono, String presentalibro, String nombre) {
+    public Cliente(int id, int telefono, String presentalibro, String nombre, String dir) {
         this.id = id;
         this.telefono = telefono;
         this.nombre = nombre;
         this.presentalibro = presentalibro;
+        this.direccion = dir;
     }
 
     public int getId() {
@@ -27,14 +29,9 @@ public class Cliente {
         return presentalibro;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -44,11 +41,11 @@ public class Cliente {
         this.presentalibro = presentalibro;
     }
 
-    public void mostrarinformacion (){
-        System.out.println(id);
-        System.out.println(telefono);
-        System.out.println(direccion);
-        System.out.println(nombre);
-        System.out.println(presentalibro);
+    public String getDireccion() {
+        return this.direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

@@ -29,8 +29,9 @@ public class Main {
                     System.out.print("Ingrese cantidad de clientes a registrar: ");
                     int n = sc.nextInt();
                     sc.nextLine();
+                    Cliente[] arr = new Cliente[n];
                     for (int i = 0; i < n; i++) {
-                        System.out.println("\nCliente #" + i);
+                        System.out.println("\nCliente #" + (i+1));
 
                         System.out.print("Nombre: ");
                         String nombre = sc.nextLine();
@@ -41,25 +42,28 @@ public class Main {
                         System.out.print("telefono: ");
                         int telefono = sc.nextInt();
 
-                        System.out.print("presenta libro: ");
-                        String pLibro = sc.nextLine();
+                        System.out.print("Direccion: ");
+                        String dir = sc.nextLine();
 
-                        Cliente c = new Cliente(id, telefono, pLibro, nombre);
+                        String plibro = "No";
+                        sc.nextLine();
+                        Cliente c = new Cliente(id, telefono, plibro, nombre, dir);
                         boolean r = con.guardarcliente(c);
-                        if (r) {
+                        if (r == true) {
                             System.out.println("Cliente exitosamente guardado");
                         } else {
                             System.out.println("Cliente ya existente");
                         }
+
                     }
-                    sc.nextLine();
+
                     break;
                 case 2:
                     System.out.print("Ingrese cantidad de libros a registrar: ");
                     int a = sc.nextInt();
                     sc.nextLine();
                     for (int i = 0; i < a; i++) {
-                        System.out.println("\nlibro #" + i);
+                        System.out.println("\nlibro #" + (i+1));
 
                         System.out.print("Nombre: ");
                         String nombre = sc.nextLine();
@@ -71,78 +75,70 @@ public class Main {
                         String au = sc.nextLine();
 
                         System.out.print("año publicacion: ");
-                        String ap = sc.nextLine();
+                        int ap = sc.nextInt();
 
                         System.out.print("editorial: ");
                         String ed = sc.nextLine();
 
-                        System.out.println("estado: ");
-                        String es = sc.nextLine();
-
+                        String es = "Disponible";
+                        sc.nextLine();
                         Libro l = new Libro(au,nombre,ed,ap,es,id);
                         boolean r = g.guardarLibro(l) ;
-                        if (r) {
+                        if (r == true) {
                             System.out.println("libro exitosamente guardado");
                         } else {
                             System.out.println("libro ya existente");
                         }
                     }
-                    sc.nextLine();
                     break;
                 case 3:
                     System.out.print("Ingrese identificador de libro: ");
                     String id = sc.nextLine();
-                    sc.nextLine();
-
-                    Libro l = g.buscarLibro(id);
-                    if(l!=null){
-                        l.mostrarInfo();
-                    }else{
-                        System.out.println("libro no encontrado");
-                    }
-                    sc.nextLine();
+                    String m = g.mostrarInfo(id);
+                    System.out.println(m);
                     break;
                 case 4:
                     for(int i = 0; i < g.getLibros().size(); i++){
-                        System.out.println(g.getLibros().get(i).getNombre());
+                        System.out.print(g.mostrarInfo(g.getLibros().get(i).getIdentificador())+"\n");
+                        System.out.println("");
                     }
-                    sc.nextLine();
                     break;
                 case 5:
                     for(int i = 0; i < con.getClientes().size(); i++){
-                        System.out.println(con.getClientes().get(i).getNombre());
+                        System.out.print(con.mostrarInfo(con.getClientes().get(i).getId())+"\n");
+                        System.out.println("");
                     }
-                    sc.nextLine();
                     break;
                 case 6:
                     System.out.println("Ingrese el identificador del libro: ");
                     String idli = sc.nextLine();
                     System.out.println("Ingrese el identificador del cliente: ");
                     int idcli = sc.nextInt();
-                    boolean r = p.generarprestamo(idcli,idli);
-                    if(r){
+                    Libro lib = g.buscarLibro(idli);
+                    Cliente clien = con.buscarCliente(idcli);
+                    if(lib != null && clien != null && lib.getEstado().equalsIgnoreCase("disponible")){
                         System.out.println("Libro correctamente prestado");
+                        p.generarprestamo(clien,lib);
                     }else{
                         System.out.println("Libro o cliente no encontrado");
                     }
-                    sc.nextLine();
                     break;
                 case 7:
                     System.out.println("Ingrese el identificador del libro: ");
                     String idlib = sc.nextLine();
                     System.out.println("Ingrese el identificador del cliente: ");
                     int idclie = sc.nextInt();
-                    boolean re = p.registrardevoluciones(idclie,idlib);
-                    if(re){
+                    Libro libro = g.buscarLibro(idlib);
+                    Cliente cliente = con.buscarCliente(idclie);
+                    if(libro != null && cliente != null && libro.getEstado().equalsIgnoreCase("prestado")){
                         System.out.println("Libro correctamente devuelto");
+                        p.registrardevoluciones(cliente,libro);
                     }else{
                         System.out.println("Libro o cliente no encontrado");
                     }
-                    sc.nextLine();
                     break;
                 case 8:
                     System.out.println("Saliendo del sistema");
-                    sc.nextLine();
                     break;
                 default:
                     System.out.println("Opción inválida.");

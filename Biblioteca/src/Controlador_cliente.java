@@ -38,5 +38,14 @@ public class Controlador_cliente {
         }
         return null;
     }
+
+    public String mostrarInfo(int id){
+        Cliente cli = buscarCliente(id);
+        if(cli!= null){
+            String m = ("identificador: " + cli.getId() + "\n"+"nombre: "+ cli.getNombre() + "\n" + "telefono: " + cli.getTelefono() + "\n" + "direccion: " + cli.getDireccion() + "\n" + "tiene libro?: " + cli.getPresentalibro() + "\n");
+            return m;
+        }
+        return "libro no existente";
+    }
     
 }

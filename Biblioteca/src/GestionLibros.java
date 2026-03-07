@@ -14,7 +14,8 @@ public class GestionLibros {
     public boolean guardarLibro(Libro l){
         Libro li = buscarLibro(l.getIdentificador());
         if(li==null){
-            libros.add(li);
+            libros.add(l);
+            return true;
         }
         return false;
     }
@@ -37,5 +38,14 @@ public class GestionLibros {
             }
         }
         return null;
+    }
+
+    public String mostrarInfo(String id){
+        Libro li = buscarLibro(id);
+        if(li!= null){
+            String m = ("identificador: " + li.getIdentificador() + "\n"+"nombre: "+ li.getNombre() + "\n" + "estado: " + li.getEstado() + "\n" + "editorial: " + li.getEditorial() + "\n" + "año publicacion: " + li.getAnhoP() + "\n" + "autor: " + li.getAutor());
+            return m;
+        }
+        return "libro no existente";
     }
 }
