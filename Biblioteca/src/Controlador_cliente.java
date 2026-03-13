@@ -16,5 +16,5 @@ public class Controlador_cliente {
           clientes.remove(i); }
         }
     }
-    
+    //rroz
 }
