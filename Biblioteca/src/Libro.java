@@ -2,11 +2,11 @@ public class Libro {
     private String nombre;
     private String autor;
     private String editorial;
-    private String anhoP;
+    private int anhoP;
     private String estado;
     private String identificador;
 
-    public Libro(String autor, String nombre, String editorial, String añoP, String estado, String identificador) {
+    public Libro(String autor, String nombre, String editorial, int anhoP, String estado, String identificador) {
         this.autor = autor;
         this.nombre = nombre;
         this.editorial = editorial;
@@ -39,12 +39,8 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public String getAnhoP() {
+    public int getAnhoP() {
         return anhoP;
-    }
-
-    public void setAnhoP(String anhoP) {
-        this.anhoP = anhoP;
     }
 
     public String getEstado() {
@@ -58,4 +54,5 @@ public class Libro {
     public String getIdentificador() {
         return identificador;
     }
+
 }
