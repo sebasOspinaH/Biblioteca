@@ -40,7 +40,8 @@ public class Main {
                         int id = sc.nextInt();
 
                         System.out.print("telefono: ");
-                        int telefono = sc.nextInt();
+                        long telefono = sc.nextLong();
+                        sc.nextLine();
 
                         System.out.print("Direccion: ");
                         String dir = sc.nextLine();
@@ -76,12 +77,12 @@ public class Main {
 
                         System.out.print("año publicacion: ");
                         int ap = sc.nextInt();
+                        sc.nextLine();
 
                         System.out.print("editorial: ");
                         String ed = sc.nextLine();
 
                         String es = "Disponible";
-                        sc.nextLine();
                         Libro l = new Libro(au,nombre,ed,ap,es,id);
                         boolean r = g.guardarLibro(l) ;
                         if (r == true) {

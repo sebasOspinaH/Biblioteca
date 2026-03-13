@@ -1,11 +1,11 @@
 public class Cliente {
     private int id;
-    private int  telefono;
+    private long  telefono;
     private String nombre;
     private String presentalibro;
     private String direccion;
 
-    public Cliente(int id, int telefono, String presentalibro, String nombre, String dir) {
+    public Cliente(int id, long telefono, String presentalibro, String nombre, String dir) {
         this.id = id;
         this.telefono = telefono;
         this.nombre = nombre;
@@ -17,7 +17,7 @@ public class Cliente {
         return id;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
@@ -29,7 +29,7 @@ public class Cliente {
         return presentalibro;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
