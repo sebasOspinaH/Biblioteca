@@ -19,7 +19,8 @@ public class Main {
             System.out.println("5. Listar Clientes");
             System.out.println("6. Pedir Libro");
             System.out.println("7. Devolver Libro");
-            System.out.println("8. Salir");
+            System.out.println("8. ingrese id de cliente");
+	    System.out.println("9. salir");
             System.out.print("Ingrese la opcion: ");
             opcion = sc.nextInt();
             sc.nextLine();
@@ -139,11 +140,28 @@ public class Main {
                     }
                     break;
                 case 8:
+               System.out.println("ingrese id del cliente: ");
+	       int idHist = sc.nextInt();
+	       Cliente cHist = con.buscarCliente(idHist);
+	       if(cHist !=null){
+		       if(cHist.getHistorialPrestamos().isEmpty()){
+			       System.out.println("el cliente no tiene historial");
+		       }else{
+			       System.out.println("Historial de prestamos: ");
+			       for(String nombreLib : cHist.getHistorialPrestamos()){
+				       System.out.println("- " + nombreLib);
+ }
+	}
+	       } else {
+		       System.out.println("Cliente no encontrado");
+	       }
+	       break;
+		case 9:
                     System.out.println("Saliendo del sistema");
                     break;
                 default:
                     System.out.println("Opción inválida.");
             }
-        }while (opcion != 8);
-        }
+        }while (opcion != 9);
     }
+}

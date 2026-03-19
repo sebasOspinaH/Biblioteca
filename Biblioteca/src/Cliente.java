@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 public class Cliente {
     private int id;
     private long  telefono;
     private String nombre;
     private String presentalibro;
     private String direccion;
+    private ArrayList<String> historialprestamos= new ArrayList<>();
 
     public Cliente(int id, long telefono, String presentalibro, String nombre, String dir) {
         this.id = id;
@@ -48,4 +50,10 @@ public class Cliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    public void agregarhistorial(String nombrelibro){
+	    historialprestamos.add(nombrelibro);
+}
+    public ArrayList<String> getHistorialPrestamos(){
+	    return historialprestamos;
+}
 }
