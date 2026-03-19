@@ -5,6 +5,7 @@ public class Libro {
     private int anhoP;
     private String estado;
     private String identificador;
+    private int contadorPrestamos;
 
     public Libro(String autor, String nombre, String editorial, int anhoP, String estado, String identificador) {
         this.autor = autor;
@@ -13,6 +14,7 @@ public class Libro {
         this.anhoP = anhoP;
         this.estado = estado;
         this.identificador = identificador;
+	this.contadorPrestamos = 0;
     }
 
     public String getNombre() {
@@ -53,6 +55,12 @@ public class Libro {
 
     public String getIdentificador() {
         return identificador;
+    }
+    public int getContadorPrestamos(){
+    	return this.contadorPrestamos;
+    }
+    public void incrementarContadorPrestamo(){
+    	this.contadorPrestamos ++;
     }
 
 }

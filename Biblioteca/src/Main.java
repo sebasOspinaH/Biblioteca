@@ -20,8 +20,8 @@ public class Main {
             System.out.println("6. Pedir Libro");
             System.out.println("7. Devolver Libro");
             System.out.println("8. Consultar Historial Cliente");
-	    system.out.println("9. Mostrar Libros Mas Prestados")
-	    System.out.println("9. salir");
+	    System.out.println("9. Consultar Libros mas prestados");
+	    System.out.println("10. salir");
             System.out.print("Ingrese la opcion: ");
             opcion = sc.nextInt();
             sc.nextLine();
@@ -159,7 +159,7 @@ public class Main {
 		       System.out.println("Cliente no encontrado");
 	       }
 	       break;
-		case9:
+		case 9:
 	       g.mostrarMasPrestados();
 	       break;
 		case 10:

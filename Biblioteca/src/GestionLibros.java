@@ -48,4 +48,36 @@ public class GestionLibros {
         }
         return "libro no existente";
     }
+
+    public void mostrarMasPrestados() {
+        if (libros.isEmpty()) {
+            System.out.println("No hay libros registrados en el sistema.");
+            return;
+        }
+
+        ArrayList<Libro> ordenados = new ArrayList<>(libros);
+
+
+        for (int i = 0; i < ordenados.size() - 1; i++) {
+            for (int j = 0; j < ordenados.size() - 1 - i; j++) {
+                if (ordenados.get(j).getContadorPrestamos() < ordenados.get(j + 1).getContadorPrestamos()) {
+                    Libro temp = ordenados.get(j);
+                    ordenados.set(j, ordenados.get(j + 1));
+                    ordenados.set(j + 1, temp);
+                }
+            }
+        }
+
+        int cantidad = Math.min(3, ordenados.size());
+
+        System.out.println("\n----- LIBROS MÁS PRESTADOS -----");
+        for (int i = 0; i < cantidad; i++) {
+            Libro l = ordenados.get(i);
+            System.out.println((i + 1) + ". " + l.getNombre()
+                    + " (ID: " + l.getIdentificador() + ")"
+                    + " | Autor: " + l.getAutor()
+                    + " | Préstamos: " + l.getContadorPrestamos());
+        }
+        System.out.println("--------------------------------");
+    }
 }

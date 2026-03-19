@@ -14,6 +14,7 @@ public class PrestamoLibro {
         c.setPresentalibro("si");
         l.setEstado("prestado");
 	c.agregarhistorial(l.getNombre());
+	l.incrementarContadorPrestamo();
     }
     public void registrardevoluciones(Cliente c, Libro l){
         c.setPresentalibro("no");
