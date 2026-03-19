@@ -143,7 +143,7 @@ public class Main {
                     }
                     break;
                 case 8:
-               System.out.println("Ingrese el id  del cliente: ");
+               System.out.println("Ingrese el id del cliente: ");
 	       int idHist = sc.nextInt();
 	       Cliente cHist = con.buscarCliente(idHist);
 	       if(cHist !=null){
