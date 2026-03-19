@@ -13,6 +13,7 @@ public class PrestamoLibro {
     public void generarprestamo(Cliente c, Libro l){
         c.setPresentalibro("si");
         l.setEstado("prestado");
+	c.agregarhistorial(l.getNombre());
     }
     public void registrardevoluciones(Cliente c, Libro l){
         c.setPresentalibro("no");
