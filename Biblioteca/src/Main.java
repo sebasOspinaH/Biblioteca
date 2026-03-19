@@ -19,7 +19,8 @@ public class Main {
             System.out.println("5. Listar Clientes");
             System.out.println("6. Pedir Libro");
             System.out.println("7. Devolver Libro");
-            System.out.println("8. ingrese id de cliente");
+            System.out.println("8. Consultar Historial Cliente");
+	    system.out.println("9. Mostrar Libros Mas Prestados")
 	    System.out.println("9. salir");
             System.out.print("Ingrese la opcion: ");
             opcion = sc.nextInt();
@@ -116,6 +117,7 @@ public class Main {
                     String idli = sc.nextLine();
                     System.out.println("Ingrese el identificador del cliente: ");
                     int idcli = sc.nextInt();
+		    sc.nextLine();
                     Libro lib = g.buscarLibro(idli);
                     Cliente clien = con.buscarCliente(idcli);
                     if(lib != null && clien != null && lib.getEstado().equalsIgnoreCase("disponible")){
@@ -130,6 +132,7 @@ public class Main {
                     String idlib = sc.nextLine();
                     System.out.println("Ingrese el identificador del cliente: ");
                     int idclie = sc.nextInt();
+		    sc.nextLine();
                     Libro libro = g.buscarLibro(idlib);
                     Cliente cliente = con.buscarCliente(idclie);
                     if(libro != null && cliente != null && libro.getEstado().equalsIgnoreCase("prestado")){
@@ -140,7 +143,7 @@ public class Main {
                     }
                     break;
                 case 8:
-               System.out.println("ingrese id del cliente: ");
+               System.out.println("Consultar Historial Cliente");
 	       int idHist = sc.nextInt();
 	       Cliente cHist = con.buscarCliente(idHist);
 	       if(cHist !=null){
@@ -156,12 +159,15 @@ public class Main {
 		       System.out.println("Cliente no encontrado");
 	       }
 	       break;
-		case 9:
+		case9:
+	       g.mostrarMasPrestados();
+	       break;
+		case 10:
                     System.out.println("Saliendo del sistema");
                     break;
                 default:
                     System.out.println("Opción inválida.");
             }
-        }while (opcion != 9);
+        }while (opcion != 10);
     }
 }
