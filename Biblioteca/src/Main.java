@@ -117,7 +117,7 @@ public class Main {
                     String idli = sc.nextLine();
                     System.out.println("Ingrese el identificador del cliente: ");
                     int idcli = sc.nextInt();
-		    sc.nextLine();
+		            sc.nextLine();
                     Libro lib = g.buscarLibro(idli);
                     Cliente clien = con.buscarCliente(idcli);
                     if(lib != null && clien != null && lib.getEstado().equalsIgnoreCase("disponible")){

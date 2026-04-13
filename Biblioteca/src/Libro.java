@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Libro {
     private String nombre;
     private String autor;
@@ -14,7 +16,7 @@ public class Libro {
         this.anhoP = anhoP;
         this.estado = estado;
         this.identificador = identificador;
-	this.contadorPrestamos = 0;
+	    this.contadorPrestamos = 0;
     }
 
     public String getNombre() {
@@ -62,5 +64,5 @@ public class Libro {
     public void incrementarContadorPrestamo(){
     	this.contadorPrestamos ++;
     }
-
+    
 }
