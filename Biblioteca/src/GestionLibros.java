@@ -48,4 +48,31 @@ public class GestionLibros {
         }
         return "libro no existente";
     }
+    public void mostrarMasPrestados() {
+        if (libros.isEmpty()) {
+            System.out.println("No hay libros registrados.");
+            return;
+        }
+
+        // Encontrar el máximo número de préstamos
+        int maxPrestamos = 0;
+        for (Libro libro : libros) {
+            if (libro.getContadorPrestamos() > maxPrestamos) {
+                maxPrestamos = libro.getContadorPrestamos();
+            }
+        }
+
+        if (maxPrestamos == 0) {
+            System.out.println("No hay préstamos registrados aún.");
+            return;
+        }
+
+        // Mostrar los libros con el máximo de préstamos
+        System.out.println("Libro(s) más prestado(s) (" + maxPrestamos + " préstamo(s)):");
+        for (Libro libro : libros) {
+            if (libro.getContadorPrestamos() == maxPrestamos) {
+                System.out.println("- " + libro.getNombre() + " (ID: " + libro.getIdentificador() + ")");
+            }
+        }
+    }
 }
