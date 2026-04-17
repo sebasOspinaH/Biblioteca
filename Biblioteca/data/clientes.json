@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "nombre": "dfd",
+    "telefono": 12323,
+    "direccion": "dfdfsd",
+    "presentalibro": "No",
+    "multaPendiente": 0.0,
+    "historial": []
+  }
+]

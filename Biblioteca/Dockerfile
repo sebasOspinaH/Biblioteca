@@ -20,14 +20,10 @@ FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
-# Copiar el JAR generado
+
 COPY --from=builder /app/biblioteca.jar .
 
-# Crear carpeta data (será sobreescrita por el volumen Docker)
-RUN mkdir -p /app/data
-
-# Volumen para persistencia de datos JSON
 VOLUME ["/app/data"]
 
-# Ejecutar la aplicación de forma interactiva
+
 CMD ["java", "-jar", "biblioteca.jar"]

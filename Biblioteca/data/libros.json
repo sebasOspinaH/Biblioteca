@@ -1,0 +1,12 @@
+[
+  {
+    "identificador": "1",
+    "nombre": "dfdf",
+    "autor": "sfvs",
+    "editorial": "dvsf",
+    "anhoP": 1212,
+    "estado": "Disponible",
+    "contadorPrestamos": 0,
+    "reservas": []
+  }
+]
